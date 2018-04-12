@@ -14,6 +14,8 @@
 
 #include <iostream>
 #include <string>
+#include <stdio.h>
+#include <math.h>
 
 int main()
 {
@@ -21,24 +23,32 @@ int main()
 	std::string triangleType;
 	int userInput1;
 	int userInput2;
+	int userInput3;
 
-	std::cout << "What is your triangle type?" << std::endl;
+	std::cout << "Do you have a right, isoceles, or equilateral triangle?" << std::endl;
 	std::cin >> triangleType;
 
-	if (triangleType == "Right")
+	if (triangleType == "Right" || "right")
 		{
-			std::cout << "What is the first side you want to know the calculations for?" << std::endl;
+			std::cout << "What is the base? If none, type 0>" << std::endl;
 			std::cin >> userInput1;
-			std::cout << "What is the second side you want to know the calculations for?" << std::endl;
+			std::cout << "What is the height? If none, type 0>" << std::endl;
+			std::cin >> userInput2;
+			std::cout << "What is the hypotenuse? If none, type 0>" << std::endl;
+			std::cin >> userInput3;
+		}
+	else if (triangleType == "Isosceles" || "isosceles")
+		{
+			std::cout << "What is the base?" << std::endl;
+			std::cin >> userInput1;
+			std::cout << "What is the side?" << std::endl;
 			std::cin >> userInput2;
 		}
-	else if (triangleType == "Isosceles")
+	else if (triangleType == "Equilateral" || "equilateral")
 		{
-			std::cout << "What 2 sides do you want?" << std::endl;
-		}
-	else if (triangleType == "Equilateral")
-		{
-			std::cout << "What 2 sides do you want?" << std::endl;
+			std::cout << "What is the side length?" << std::endl;
+			std::cin >> userInput1;
+
 		}
 
 	system("pause");
