@@ -56,8 +56,15 @@ int main()
 	}
 	else if (userInputTriangleShape == "Isoceles")
 	{
-		std::cout << "What side do you want to solve for? Base, Height, or Sides>>>" << std::endl;
+		std::cout << "What side do you want to solve for? A=Base, B=Sides, or C=Height>>>" << std::endl;
 		std::cin >> userInputSide;
+		if (userInputSide == "A")
+		{
+			std::cout << "You chose side " << userInputSide << ", what is your height?" << std::endl;
+			std::cin >> sideC;
+			std::cout << "What is your sides?" << std::endl;
+			std::cin >> sideB;
+		}
 	}
 	else if (userInputTriangleShape == "Equalateral")
 	{
