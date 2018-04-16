@@ -10,7 +10,7 @@ int main()
 {
 	//Designing right triangle pythageorem theorem
 	//We need two user inputs and user needs to input which side they want to solve
-	double sideA, sideB, sideC;
+	double sideA, sideB, sideC, perimeter;
 	std::string userInputSide, userInputTriangleShape;
 	
 	std::cout << "What triangle do you want to solve for? Right, Isoceles, or Equalateral>>>" << std::endl;
@@ -56,19 +56,49 @@ int main()
 	}
 	else if (userInputTriangleShape == "Isoceles")
 	{
-		std::cout << "What side do you want to solve for? A=Base, B=Sides, or C=Height>>>" << std::endl;
+		std::cout << "What side do you want to solve for? A=Height, B=Sides, or C=Base>>>" << std::endl;
 		std::cin >> userInputSide;
 		if (userInputSide == "A")
 		{
-			std::cout << "You chose side " << userInputSide << ", what is your height?" << std::endl;
-			std::cin >> sideC;
-			std::cout << "What is your sides?" << std::endl;
+			std::cout << "You chose side " << userInputSide << ", what is your side?" << std::endl;
 			std::cin >> sideB;
+			std::cout << "What is the measurement of your base?" << std::endl;
+			std::cin >> sideC;
+			
+			sideA = sqrt((sideB * sideB) - (sideC * sideC / 4));
+			std::cout << "The area for the height is " << sideA << std::endl;
+		}
+		else if (userInputSide == "B")
+		{
+			std::cout << "You chose side " << userInputSide << ", what is your base?" << std::endl;
+			std::cin >> sideC;
+			std::cout << "What is the measurement of your height?" << std::endl;
+			std::cin >> sideA;
+
+			perimeter = (2 * sideC) + sideB;
+			sideB = 0.5 * sqrt(pow(sideC, 2) + (4 * pow(sideA, 2)));
+			std::cout << "The area for the sides is " << sideB << ", the perimeter is " << perimeter << std::endl;
+		}
+		else if (userInputSide == "C")
+		{
+			std::cout << "You chose side " << userInputSide << ", what is your sides?" << std::endl;
+			std::cin >> sideB;
+			std::cout << "What is the measurement of your height?" << std::endl;
+			std::cin >> sideA;
+
+			sideC = 2 * sqrt(pow(sideB, 2) - pow(sideA, 2));
+			std::cout << "The area for the sides is " << sideB << ", the perimeter is " << std::endl;
 		}
 	}
 	else if (userInputTriangleShape == "Equalateral")
 	{
+		std::cout << "What is the measurement of your sides?" << std::endl;
+		std::cin >> sideA;
 
+		perimeter = 3 * sideA;
+		sideC = sqrt(3) / 4 * (sideA * sideA);
+
+		std::cout << "The area for your equilateral triangle is " << sideC << ", the perimeter is " << perimeter << std::endl;
 	}
 	system("pause");
 	return 0;
