@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <string>
+#include <iomanip>
 #include <math.h>
 
 int main()
@@ -95,9 +96,9 @@ int main()
 			std::cout << "What is the measurement of your height?" << std::endl;
 			std::cin >> sideA;
 
+			sideB = 1 / 2 * sqrt((sideC * sideC) + 4 * (sideA * sideA));
 			perimeter = (2 * sideB) + sideC;
-			sideB = (perimeter / 2) - (sideC / 2);
-			area = (sideC * sideB) / 2;
+			area = (sideC * sideA) / 2;
 
 			std::cout << "The length of the sides is " << sideB << std::endl;
 			std::cout << "The area is " << area << std::endl;
@@ -110,8 +111,13 @@ int main()
 			std::cout << "What is the measurement of your height?" << std::endl;
 			std::cin >> sideA;
 
-			sideC = 2 * sqrt(pow(sideB, 2) - pow(sideA, 2));
-			std::cout << "The area for the sides is " << sideB << ", the perimeter is " << std::endl;
+			sideC = 2 * sqrt((sideB * sideB) - (sideA * sideA));
+			area = (sideC * sideB) / 2;
+			perimeter = (2 * sideB) + sideC;
+
+			std::cout << "The length of the base is " << sideC << std::endl;
+			std::cout << "The area is " << area << std::endl;
+			std::cout << "The perimeter " << perimeter << std::endl;
 		}
 	}
 	else if (userInputTriangleShape == "Equalateral")
@@ -120,9 +126,9 @@ int main()
 		std::cin >> sideA;
 
 		perimeter = 3 * sideA;
-		sideC = sqrt(3) / 4 * (sideA * sideA);
+		area = sqrt(3) / 4 * (sideA * sideA);
 
-		std::cout << "The area for your equilateral triangle is " << sideC << ", the perimeter is " << perimeter << std::endl;
+		std::cout << "The area for your equilateral triangle is " << area << ", the perimeter is " << perimeter << std::endl;
 	}
 	system("pause");
 	return 0;
