@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <string>
+#include <iomanip>
 
 int main()
 {
@@ -121,12 +122,18 @@ int main()
 		double potatoOllaTotal = potatoOllasOrdered * potatoOllas;
 		double tamaleTotal = tamaleOrdered * tamale;
 
-	} while (done != 1);
+		std::cout << "Would you like to order anything else?\n1 for Yes\n2 for No" << std::endl;
+		std::cin >> done;
+
+	} while (done != 2);
 
 	total = (tacos*tacosOrdered) + (burritos*burritosOrdered) + (enchiladas*enchiladasOrdered) + (tostadas*tostadasOrdered) + (drink*drinkOrdered)
 		+ (churro*churroOrdered) + (supremeBurrito*supremeBurritoOrdered) + (potatoOllas*potatoOllasOrdered) + (tamale*tamaleOrdered) +
 		(chimichanga*chimichangaOrdered);
 	std::cout << "Your total is >>> " << total;
+
+	std::cout << std::fixed << std::showpoint;
+	std::cout << std::setprecision(2);
 
 	system("pause");
 	return 0;

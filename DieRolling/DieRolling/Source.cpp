@@ -23,7 +23,7 @@ int main()
 		dice2 = rand() % 6 + 1;
 		dice3 = rand() % 6 + 1;
 		score = dice2 + dice  + dice3;
-		std::cout << "Your total roll is " << score << std::endl;
+		std::cout << "Your total roll is: " << score << std::endl;
 	}
 
 	system("pause");
